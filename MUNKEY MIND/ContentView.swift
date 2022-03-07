@@ -4,137 +4,141 @@
 //
 //  Created by Alejandro McGarvie on 3/1/22.
 //
-
+//                Color.teal
+//                .edgesIgnoringSafeArea(.all)
 import SwiftUI
 import AVKit
 import AVFoundation
 
 var player: AVAudioPlayer!
 
-
+   
 struct ContentView: View {
+    @State var show = false
     var body: some View {
-        
-        //NavigationView{
-        //yeah
-            ZStack{
-                ScrollView(.vertical, showsIndicators: false){
-                    VStack (spacing: 15){
-                        ForEach(1...8, id: \.self){i in
-                            Image("p\(i)").resizable().frame(height:250).cornerRadius(15)
-                        }
-                    }.padding()
-                }
-               
-                GeometryReader{_ in
-                    HStack{
-                        Menu()
-                        Spacer()
-                    }
-                    
-                }
-                
-            } .navigationBarTitle("Home", displayMode: .inline)
-        
-        
-        ZStack{
-            //LinearGradient(gradient: Gradient(colors: [.green, .white]),
-                          // startPoint: .topLeading,
-                        //   endPoint: .bottomTrailing)
-                Color.teal
-                .edgesIgnoringSafeArea(.all)
-                //Spacer()
-            
-            
-            
-              VStack{
-                  Image("Img1")
-                      .resizable()
-                      .scaledToFit()
-                     .frame(width: 200 , height:200)
-                
-                
-                  HStack{
-                
-                  Button(action:{
-                      print("run")
-                  }, label: {
-                      Text("MEDITATIONS")
-                          .foregroundColor(.black)
-                        .frame(width:130, height: 30)
-                        .background(.yellow)
-                        //.border(Color.black, width: 3)
-                        .cornerRadius(30)
-                })
-                    Button(action:{
-                        print("run")
-                    }, label: {
-                        Text("HOW TO")
-                            .foregroundColor(.black)
-                            .frame(width:130, height: 30)
-                            .background(.yellow)
-                            //.border(Color.black, width: 3)
-                            .cornerRadius(30)
-                    })
-                    Button(action:{
-                        print("run")
-                    }, label: {
-                        Text("ABOUT US")
-                            .foregroundColor(.black)
-                            .frame(width:130, height: 30)
-                            .background(.yellow)
-                           // .border(Color.black, width: 3)
-                           .cornerRadius(30)
-                    })
-                    
-                 } //hstack closing
-                Spacer()
-               
-            } //vstack closing
+       
 
-            VStack{
+        VStack{
+            HStack{
+          
+                Image("Logo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 150 , height: 50)
+                Spacer()
+            }
+        }
+
+        ZStack{
+       
+            NavigationView{
+               
+            
+                ZStack{
+                    LinearGradient(gradient: Gradient(colors: [.yellow, .white]),
+                                   startPoint: .topLeading,
+                                  endPoint: .bottomTrailing)
+//                    Color.yellow //main screen app background
+//                   .edgesIgnoringSafeArea(.all)
+                   
+                        ScrollView(.vertical, showsIndicators: false){
+                            
+                            VStack (spacing: 15){
+                                
+                                ForEach(1...8, id: \.self){i in
+                                    
+                                    Image("p\(i)").resizable().frame(height:250).cornerRadius(15)
+                                }
+                            }.padding()
+                        }
+                            GeometryReader {_ in
+               
+                                HStack{
+                                    
+                                    Menu()
+                                        .offset(x: self.show ? 0 : -UIScreen.main.bounds.width)
+                                        .animation(.interactiveSpring(response: 0.6, dampingFraction: 0.6, blendDuration: 0.6), value: 0.5)
+                                    Spacer()
+                                }
+                                    
+                            } .background(Color.black.opacity(self.show ? 0.5 : 0).edgesIgnoringSafeArea(.bottom))
+                        
+                    }.navigationBarTitle("", displayMode: .inline)
+                    .navigationBarItems(leading:
+                                            
+                         Button(action: {
+                        
+                            self.show.toggle()
+                                }, label: {
+                                    
+                                    if self.show{
+                                        Image("Back-Arrow-1")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 25, height: 25)
+                                    }
+                                    else{
+                                    Image("hamburger-menu").renderingMode(.original)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 35, height: 35)
+                                        //.foregroundColor(.white)
+                                       // .background(.white)
+                                    }
+                                      
+                            })
+                    )
+             
+                }
+
+            
+            VStack(spacing: 55){
+             
+            
                 Link(destination: URL(string: "https://www.youtube.com/watch?v=Kq3RSSivv-A")!, label: {
-                    Text("Tiger Belly")
-                        .bold()
-                        .frame(width: 150, height: 50)
-                        .foregroundColor(.white)
-                        .background(.black)
-                        .cornerRadius(15)
+                    Text("5 Min Meditation")
+                    .bold()
+                    .frame(width: 150, height: 50)
+                    .foregroundColor(.white)
+                    .background(.black)
+                    .cornerRadius(15)
                 })
-                
-                
-                Link(destination: URL(string: "https://www.youtube.com/watch?v=Kq3RSSivv-A")!, label: {
-                    Text("Tiger Belly")
-                        .bold()
-                        .frame(width: 150, height: 50)
-                        .foregroundColor(.white)
-                        .background(.black)
-                        .cornerRadius(15)
-                })
-                
-                
-                Link(destination: URL(string: "https://www.youtube.com/watch?v=Kq3RSSivv-A")!, label: {
-                    Text("Tiger Belly")
-                        .bold()
-                        .frame(width: 150, height: 50)
-                        .foregroundColor(.white)
-                        .background(.black)
-                        .cornerRadius(15)
-                })
-                
-                Link(destination: URL(string: "https://www.youtube.com/watch?v=Kq3RSSivv-A")!, label: {
-                    Text("Tiger Belly")
-                        .bold()
-                        .frame(width: 150, height: 50)
-                        .foregroundColor(.white)
-                        .background(.black)
-                        .cornerRadius(15)
-                })
-    
-           }
-        }//Vstacking closing
         
+        
+                Link(destination: URL(string: "https://www.youtube.com/watch?v=Kq3RSSivv-A")!, label: {
+                    Text("10 Min Meditation")
+                        .bold()
+                        .frame(width: 150, height: 50)
+                        .foregroundColor(.white)
+                        .background(.black)
+                        .cornerRadius(15)
+                })
+        
+        
+                Link(destination: URL(string: "https://www.youtube.com/watch?v=Kq3RSSivv-A")!, label: {
+                    Text("15 Min Meditation")
+                        .bold()
+                        .frame(width: 150, height: 50)
+                        .foregroundColor(.white)
+                        .background(.black)
+                        .cornerRadius(15)
+                })
+        
+                Link(destination: URL(string: "https://www.youtube.com/watch?v=Kq3RSSivv-A")!, label: {
+                    Text("Customer Meditation")
+                        .bold()
+                        .frame(width: 150, height: 50)
+                        .foregroundColor(.white)
+                        .background(.black)
+                        .cornerRadius(15)
+                })
+            
+            }
+         
+        }
+      
     }
+ 
     func playSouhd(){
         let url = Bundle.main.url(forResource: "Tada-sound", withExtension:"mp3")
         
@@ -146,11 +150,11 @@ struct ContentView: View {
             print("error")
         }
     
-    
     }
+
 }
-
-
+        
+        
 
 
 struct ContentView_Previews: PreviewProvider {
@@ -161,88 +165,63 @@ struct ContentView_Previews: PreviewProvider {
 
 struct Menu: View {
     var body : some View{
-        VStack(spacing: 35){
-            Button(action:{
-                
-            }){
-                VStack(spacing:8){
-                    Image("home")
-                        .renderingMode(.original)
-                        .resizable()
-                        .frame(width: 55, height: 55)
+            VStack(spacing: 60){
+                Button(action:{
+                    
+                }){
+                    VStack(spacing:8){
+                        Image("home")
+                            .renderingMode(.original)
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                        Text("Home")
+                    }
+                    
+                }
+                Button(action:{
+                    
+                }){
+                    VStack(spacing:8){
+                        Image("categories")
+                            .renderingMode(.original)
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                        Text("Categories")
+                    }
                 }
                 
-            }
-            Button(action:{
-                
-            }){
-                VStack(spacing:8){
-                    Image("categories")
-                        .renderingMode(.original)
-                        .resizable()
-                        .frame(width: 55, height: 55)
+                Button(action:{
+                    
+                }){
+                    VStack(spacing:8){
+                        Image("diversity")
+                            .renderingMode(.original)
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                        Text("Join Our Community")
+                    }
                 }
-            }
-            Button(action:{
                 
-            }){
-                VStack(spacing:8){
-                    Image("info")
-                        .renderingMode(.original)
-                        .resizable()
-                        .frame(width: 55, height: 55)
-                }
+                Button(action:{
+                
+                }){
+                    VStack(spacing:8){
+                        Image("info")
+                            .renderingMode(.original)
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                        Text("About Us")
+                    }
                
-            }
-            Spacer(minLength: 15)
-        }.padding(35)
+                }
+                Spacer(minLength: 15)
+            }.padding(35)
             .background(Color("Color").edgesIgnoringSafeArea(.bottom))
-}
+    }
 
 
 }
 
-
-
-//Button(action:{
-  //  self.playSouhd()
-//}, label: {
-   // Text("5 Min Meditation")
-     //   .foregroundColor(.black)
-      //  .frame(width:350, height:60)
-     //   .background(.white)
-       // //.border(Color.black, width: 5)
-///.cornerRadius(30)
-     //   .padding(20)
-        
-//})
-
-
-//Button(action:{
-  //  print("Jacky")
-//}, label: {
-  //  Text("10 Min Meditation")
-    //    .foregroundColor(.black)
-      //  .frame(width:350, height:60)
-        //.background(.white)
-        //.border(Color.black, width:5)
-        //.cornerRadius(30)
-//})
-
-
-//padding(5)
-
-
-//Button(action:{
- //   print("Runny Nose")
-//}, label:{
-  //  Text("15 Min Meditation")
-    //    .foregroundColor(.black)
-      //  .frame(width:350, height:60)
-        //.background(.white)
-        //.border(Color.black,width:5)
-       //.cornerRadius(30)
-        //.padding(20)
-        
-//})
-
+//LinearGradient(gradient: Gradient(colors: [.green, .white]),
+              // startPoint: .topLeading,
+            //   endPoint: .bottomTrailing)
