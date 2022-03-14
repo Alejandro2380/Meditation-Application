@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00AC27E127D3185800C02965 /* Tada-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 00AC27E027D3185800C02965 /* Tada-sound.mp3 */; };
 		00AC27E327D33A0000C02965 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 00AC27E227D33A0000C02965 /* Logo.png */; };
 		00C48DCA27CF44260084E5AE /* MUNKEY_MINDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C48DC927CF44260084E5AE /* MUNKEY_MINDApp.swift */; };
 		00C48DCC27CF44260084E5AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C48DCB27CF44260084E5AE /* ContentView.swift */; };
 		00C48DCE27CF44270084E5AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00C48DCD27CF44270084E5AE /* Assets.xcassets */; };
 		00C48DD127CF44270084E5AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00C48DD027CF44270084E5AE /* Preview Assets.xcassets */; };
+		00C672C827DCF122001FF8C5 /* Track 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 00C672C727DCF122001FF8C5 /* Track 2.mp3 */; };
+		00D2ED8427DC4FAB000F0360 /* Trac 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 00D2ED8327DC4FAB000F0360 /* Trac 3.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		00AC27E027D3185800C02965 /* Tada-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Tada-sound.mp3"; sourceTree = "<group>"; };
 		00AC27E227D33A0000C02965 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Logo.png; path = ../../../../Downloads/Logo.png; sourceTree = "<group>"; };
 		00C48DC627CF44260084E5AE /* MUNKEY MIND.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MUNKEY MIND.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00C48DC927CF44260084E5AE /* MUNKEY_MINDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUNKEY_MINDApp.swift; sourceTree = "<group>"; };
@@ -24,6 +24,8 @@
 		00C48DCD27CF44270084E5AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00C48DD027CF44270084E5AE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		00C48DD727CF45190084E5AE /* MUNKEY-MIND-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MUNKEY-MIND-Info.plist"; sourceTree = SOURCE_ROOT; };
+		00C672C727DCF122001FF8C5 /* Track 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Track 2.mp3"; path = "../../../../../../../Volumes/Passport/100  Meditations/Track 2.mp3"; sourceTree = "<group>"; };
+		00D2ED8327DC4FAB000F0360 /* Trac 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Trac 3.mp3"; path = "../../../../Trac 3.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +42,8 @@
 		00AC27DF27D3180F00C02965 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				00AC27E027D3185800C02965 /* Tada-sound.mp3 */,
+				00D2ED8327DC4FAB000F0360 /* Trac 3.mp3 */,
+				00C672C727DCF122001FF8C5 /* Track 2.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -143,7 +146,8 @@
 			files = (
 				00AC27E327D33A0000C02965 /* Logo.png in Resources */,
 				00C48DD127CF44270084E5AE /* Preview Assets.xcassets in Resources */,
-				00AC27E127D3185800C02965 /* Tada-sound.mp3 in Resources */,
+				00C672C827DCF122001FF8C5 /* Track 2.mp3 in Resources */,
+				00D2ED8427DC4FAB000F0360 /* Trac 3.mp3 in Resources */,
 				00C48DCE27CF44270084E5AE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
